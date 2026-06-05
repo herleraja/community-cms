@@ -1,0 +1,183 @@
+@import "../mixins";
+
+.home {
+  min-height: 100vh;
+
+  // Hero-specific Kannada text styles
+  &__hero-title-kannada {
+    @include heading-2;
+    color: $gray-800;
+    margin-bottom: $spacing-lg;
+    font-weight: 600;
+  }
+
+  &__hero-tagline-kannada {
+    font-size: 1.125rem;
+    color: $gray-700;
+    margin-bottom: $spacing-2xl;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__hero-buttons {
+    @include flex-column;
+    gap: $spacing-md;
+    align-items: center;
+
+    @media (min-width: $breakpoint-sm) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__hero-button-primary {
+    @include button-primary;
+    font-size: 1.125rem;
+    padding: $spacing-md $spacing-2xl;
+    box-shadow: $shadow-lg;
+  }
+
+  &__hero-button-secondary {
+    @include button-secondary;
+    font-size: 1.125rem;
+    padding: $spacing-md $spacing-2xl;
+    box-shadow: $shadow-lg;
+  }
+
+  // Feature-specific styles
+  &__features {
+    margin-top: $spacing-3xl;
+  }
+
+  &__feature-card {
+    padding: $spacing-2xl;
+    text-align: center;
+  }
+
+  &__feature-icon {
+    @include flex-center;
+    margin-bottom: $spacing-md;
+  }
+
+  &__feature-icon-circle {
+    svg {
+      color: $white;
+      font-size: 1.875rem;
+    }
+  }
+
+  &__feature-title {
+    @include heading-4;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+  }
+
+  &__feature-description {
+    color: $gray-700;
+  }
+
+  // Event card-specific styles
+  &__event-card {
+    overflow: hidden;
+  }
+
+  &__event-header {
+    @include gradient-red;
+    padding: $spacing-lg;
+    color: $white;
+  }
+
+  &__event-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__event-title-kannada {
+    font-size: 1.125rem;
+    opacity: 0.9;
+  }
+
+  &__event-body {
+    padding: $spacing-lg;
+  }
+
+  &__event-details {
+    margin-bottom: $spacing-md;
+  }
+
+  &__event-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    color: $gray-700;
+
+    svg {
+      color: $primary-red;
+      margin-right: $spacing-sm;
+    }
+
+    strong {
+      margin-right: $spacing-sm;
+    }
+  }
+
+  &__event-description {
+    margin-top: $spacing-md;
+    color: $gray-600;
+  }
+
+  &__event-button {
+    @include button-primary;
+    margin-top: $spacing-md;
+    padding: $spacing-sm $spacing-lg;
+  }
+
+  &__events-view-all {
+    text-align: center;
+    margin-top: $spacing-3xl;
+  }
+
+  &__view-all-button {
+    @include button-primary;
+    font-size: 1.125rem;
+  }
+
+  // CTA section
+  &__cta {
+    @include gradient-red;
+    @include section-padding;
+    color: $white;
+  }
+
+  &__cta-container {
+    @include container;
+    text-align: center;
+    max-width: 64rem;
+  }
+
+  &__cta-title {
+    @include heading-2;
+    margin-bottom: $spacing-md;
+  }
+
+  &__cta-description {
+    @include text-large;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__cta-button {
+    @include button-base;
+    background-color: $white;
+    color: $primary-red;
+    padding: $spacing-md $spacing-2xl;
+    font-size: 1.125rem;
+    box-shadow: $shadow-lg;
+
+    &:hover {
+      background-color: $gray-100;
+    }
+  }
+}

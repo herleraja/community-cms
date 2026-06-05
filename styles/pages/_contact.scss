@@ -1,0 +1,261 @@
+@import "../mixins";
+
+.contact {
+  min-height: 100vh;
+
+  // Grid layout
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  // Info section
+  &__info-section {
+    h2 {
+      @include heading-2;
+      color: $gray-900;
+      margin-bottom: $spacing-2xl;
+    }
+
+    p {
+      @include text-large;
+      color: $gray-600;
+      margin-bottom: $spacing-2xl;
+    }
+  }
+
+  &__info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__info-icon {
+    margin-right: $spacing-md;
+
+    svg {
+      color: $white;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__info-content {
+    h3 {
+      font-weight: 600;
+      color: $gray-900;
+      margin-bottom: 0.25rem;
+    }
+
+    a {
+      color: $primary-red;
+      text-decoration: none;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $primary-red-dark;
+      }
+    }
+
+    span {
+      color: $gray-700;
+    }
+  }
+
+  &__office-hours {
+    margin-top: $spacing-2xl;
+    background-color: $gray-50;
+    padding: $spacing-lg;
+    border-radius: $radius-lg;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    color: $gray-700;
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Form section
+  &__form-section {
+    padding: $spacing-2xl;
+    box-shadow: $shadow-lg;
+
+    h2 {
+      @include heading-3;
+      color: $gray-900;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__success-message {
+    margin-bottom: $spacing-lg;
+    background-color: rgba($accent-green, 0.1);
+    border: 1px solid $accent-green;
+    color: darken($accent-green, 10%);
+    padding: $spacing-md;
+    border-radius: $radius-md;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__form-group {
+    label {
+      display: block;
+      color: $gray-700;
+      font-weight: 600;
+      margin-bottom: $spacing-sm;
+    }
+
+    input,
+    select,
+    textarea {
+      @include input-base;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  }
+
+  &__submit-button {
+    @include button-primary;
+    width: 100%;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+
+    svg {
+      font-size: 1rem;
+    }
+  }
+
+  // Membership section
+  &__membership-container {
+    max-width: 64rem;
+    text-align: center;
+  }
+
+  &__membership-title {
+    @include heading-2;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+  }
+
+  &__membership-description {
+    @include text-large;
+    color: $gray-800;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__membership-box {
+    background-color: rgba($white, 0.9);
+    padding: $spacing-2xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    max-width: 42rem;
+    margin: 0 auto;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-lg 0;
+    text-align: left;
+  }
+
+  &__benefit-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $spacing-md;
+
+    &::before {
+      content: "✓";
+      color: $primary-red;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-right: $spacing-sm;
+      flex-shrink: 0;
+    }
+
+    span {
+      color: $gray-700;
+    }
+  }
+
+  &__membership-note {
+    margin-top: $spacing-lg;
+    color: $gray-600;
+  }
+
+  // FAQ section
+  &__faq-container {
+    max-width: 64rem;
+  }
+
+  &__faq-title {
+    @include heading-2;
+    color: $gray-900;
+    margin-bottom: $spacing-3xl;
+    text-align: center;
+  }
+
+  &__faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__faq-item {
+    background-color: $gray-50;
+    padding: $spacing-lg;
+    border-radius: $radius-lg;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      color: $gray-700;
+      line-height: 1.75;
+      margin: 0;
+    }
+  }
+}

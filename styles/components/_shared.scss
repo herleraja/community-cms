@@ -1,0 +1,140 @@
+@import "../mixins";
+
+// Shared Hero Components
+.hero {
+  @include hero-base;
+
+  &--red {
+    @include gradient-red;
+    color: $white;
+  }
+
+  &--yellow {
+    @include gradient-yellow;
+  }
+}
+
+.hero-container {
+  @include hero-container;
+}
+
+.hero-title {
+  @include hero-title;
+}
+
+.hero-subtitle {
+  @include hero-subtitle;
+}
+
+// Shared Section Components
+.section {
+  @include section-padding;
+
+  &--white {
+    background-color: $white;
+  }
+
+  &--gray {
+    background-color: $gray-50;
+  }
+}
+
+.section-header {
+  @include section-header;
+}
+
+.section-title {
+  @include section-title;
+}
+
+.section-description {
+  @include section-description;
+}
+
+// Shared Card Components
+.card {
+  @include card;
+}
+
+.card-gradient {
+  @include card-gradient(rgba($primary-red, 0.05), rgba($primary-red, 0.1));
+
+  &--yellow {
+    @include card-gradient(
+      rgba($secondary-yellow, 0.05),
+      rgba($secondary-yellow, 0.1)
+    );
+  }
+
+  &--green {
+    @include card-gradient(rgba($accent-green, 0.05), rgba($accent-green, 0.1));
+  }
+}
+
+// Shared Info Card
+.info-card {
+  @include info-card-base;
+
+  &--red {
+    background-color: rgba($primary-red, 0.05);
+  }
+
+  &--yellow {
+    background-color: rgba($secondary-yellow, 0.05);
+  }
+
+  &--green {
+    background-color: rgba($accent-green, 0.05);
+  }
+}
+
+// Shared Icon Container
+.icon-container {
+  @include icon-container($primary-red, 3rem);
+
+  &--yellow {
+    background-color: #ca8a04;
+  }
+
+  &--green {
+    background-color: $accent-green;
+  }
+
+  &--large {
+    @include icon-container($primary-red, 4rem);
+  }
+
+  &--xlarge {
+    @include icon-container($primary-red, 6rem);
+  }
+}
+// Shared Kannada Box
+.kannada-box {
+  @include kannada-box;
+}
+
+// Shared Container
+.container {
+  @include container;
+}
+
+// Shared Grid
+.grid {
+  @include grid-responsive(1, 2, 3, $spacing-2xl);
+
+  &--2-col {
+    @include grid-responsive(1, 2, 2, $spacing-2xl);
+  }
+
+  &--4-col {
+    @include grid-responsive(1, 2, 4, $spacing-2xl);
+  }
+
+  &--gap-lg {
+    gap: $spacing-lg;
+  }
+
+  &--gap-xl {
+    gap: $spacing-3xl;
+  }
+}

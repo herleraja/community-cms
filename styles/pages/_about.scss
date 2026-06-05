@@ -1,0 +1,173 @@
+@import "../mixins";
+
+.about {
+  min-height: 100vh;
+
+  // Mission section grid
+  &__mission-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+    align-items: center;
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__mission-content {
+    h2 {
+      @include heading-2;
+      color: $gray-900;
+      margin-bottom: $spacing-lg;
+    }
+
+    p {
+      @include text-large;
+      color: $gray-700;
+      margin-bottom: $spacing-lg;
+      line-height: 1.75;
+    }
+  }
+
+  &__mission-kannada {
+    p {
+      @include text-large;
+      color: $gray-800;
+      font-weight: 600;
+    }
+  }
+
+  &__vision-card {
+    padding: $spacing-2xl;
+    box-shadow: $shadow-lg;
+
+    h3 {
+      @include heading-3;
+      color: $gray-900;
+      margin-bottom: $spacing-lg;
+    }
+
+    p {
+      @include text-large;
+      color: $gray-800;
+      line-height: 1.75;
+    }
+  }
+
+  // Value card
+  &__value-card {
+    padding: $spacing-lg;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__value-icon {
+    color: $accent-green;
+    font-size: 1.5rem;
+    margin-right: $spacing-md;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  &__value-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $gray-900;
+  }
+
+  // Team section
+  &__team-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+
+    h2 {
+      @include heading-2;
+      color: $gray-900;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      @include text-large;
+      color: $gray-600;
+    }
+  }
+
+  &__team-card {
+    padding: $spacing-2xl;
+    text-align: center;
+    transition: all $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-2xl;
+      transform: translateY(-4px);
+    }
+  }
+
+  &__team-avatar {
+    margin: 0 auto $spacing-md;
+
+    span {
+      color: $white;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__team-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__team-role {
+    color: $primary-red;
+    font-weight: 600;
+  }
+
+  // Impact cards
+  &__impact-card {
+    background-color: rgba($white, 0.9);
+    padding: $spacing-2xl;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+  }
+
+  &__impact-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $primary-red;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__impact-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $gray-800;
+  }
+
+  // Join section
+  &__join-container {
+    max-width: 64rem;
+    text-align: center;
+  }
+
+  &__join-title {
+    @include heading-2;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+  }
+
+  &__join-description {
+    @include text-large;
+    color: $gray-600;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__join-button {
+    @include button-primary;
+    font-size: 1.125rem;
+    box-shadow: $shadow-lg;
+  }
+}

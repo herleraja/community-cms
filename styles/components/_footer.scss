@@ -1,0 +1,113 @@
+@import "../mixins";
+
+.footer {
+  background-color: $gray-900;
+  color: $white;
+  margin-top: auto;
+
+  &__container {
+    @include container;
+    padding-top: $spacing-3xl;
+    padding-bottom: $spacing-3xl;
+  }
+
+  &__grid {
+    @include grid-responsive(1, 2, 3, $spacing-2xl);
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+  }
+
+  &__description {
+    color: $gray-300;
+    margin-bottom: $spacing-md;
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__link-item {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__link {
+    color: $gray-300;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $spacing-md;
+    color: $gray-300;
+
+    svg {
+      margin-top: 0.25rem;
+      margin-right: $spacing-md;
+      flex-shrink: 0;
+    }
+
+    a {
+      color: $gray-300;
+      text-decoration: none;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__bottom {
+    padding-top: $spacing-2xl;
+    border-top: 1px solid $gray-800;
+  }
+
+  &__bottom-content {
+    @include flex-column;
+    align-items: center;
+    gap: $spacing-md;
+
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: $spacing-lg;
+  }
+
+  &__social-link {
+    color: $gray-300;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__copyright {
+    color: $gray-400;
+    font-size: 0.875rem;
+  }
+}

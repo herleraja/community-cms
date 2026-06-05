@@ -1,0 +1,276 @@
+@import "./variables";
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: $radius-full;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $primary-red;
+  color: $white;
+  padding: $spacing-md $spacing-2xl;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-red-dark;
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $white;
+  color: $primary-red;
+  padding: $spacing-md $spacing-2xl;
+  border: 2px solid $primary-red;
+
+  &:hover:not(:disabled) {
+    background-color: $gray-100;
+  }
+}
+
+// Card mixins
+@mixin card {
+  background-color: $white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-xl;
+  }
+}
+
+@mixin card-gradient($color1, $color2) {
+  background: linear-gradient(135deg, $color1 0%, $color2 100%);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+}
+
+// Container mixins
+@mixin container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 $spacing-lg;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $spacing-2xl;
+  }
+}
+
+@mixin section-padding {
+  padding: $spacing-3xl $spacing-md;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 4rem $spacing-md;
+  }
+}
+
+// Typography mixins
+@mixin heading-1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 3.75rem;
+  }
+}
+
+@mixin heading-2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 3rem;
+  }
+}
+
+@mixin heading-3 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 2.25rem;
+  }
+}
+
+@mixin heading-4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 1.875rem;
+  }
+}
+
+@mixin text-large {
+  font-size: 1.125rem;
+  line-height: 1.75;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 1.25rem;
+  }
+}
+
+// Form mixins
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  border: 1px solid $gray-300;
+  border-radius: $radius-lg;
+  font-size: 1rem;
+  transition: all $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-red;
+    box-shadow: 0 0 0 3px rgba($primary-red, 0.1);
+  }
+
+  &::placeholder {
+    color: $gray-400;
+  }
+}
+
+// Gradient mixins
+@mixin gradient-red {
+  background: linear-gradient(
+    to right,
+    $primary-red 0%,
+    $primary-red-dark 100%
+  );
+}
+
+@mixin gradient-yellow {
+  background: linear-gradient(
+    to right,
+    $secondary-yellow 0%,
+    $secondary-yellow-dark 100%
+  );
+}
+
+// Icon container mixin
+@mixin icon-container($bg-color, $size: 3rem) {
+  width: $size;
+  height: $size;
+  background-color: $bg-color;
+  border-radius: 50%;
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+// Responsive grid
+@mixin grid-responsive(
+  $cols-mobile: 1,
+  $cols-tablet: 2,
+  $cols-desktop: 3,
+  $gap: $spacing-2xl
+) {
+  display: grid;
+  grid-template-columns: repeat($cols-mobile, 1fr);
+  gap: $gap;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat($cols-tablet, 1fr);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat($cols-desktop, 1fr);
+  }
+}
+
+// Hero section mixins
+@mixin hero-base {
+  @include section-padding;
+}
+
+@mixin hero-container {
+  @include container;
+  text-align: center;
+}
+
+@mixin hero-title {
+  @include heading-1;
+  margin-bottom: $spacing-md;
+}
+
+@mixin hero-subtitle {
+  @include text-large;
+}
+
+// Section header mixins
+@mixin section-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+@mixin section-title {
+  @include heading-2;
+  color: $gray-900;
+  margin-bottom: $spacing-md;
+}
+
+@mixin section-description {
+  @include text-large;
+  color: $gray-600;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+// Info card with icon
+@mixin info-card-base {
+  display: flex;
+  align-items: flex-start;
+  padding: $spacing-lg;
+  border-radius: $radius-lg;
+}
+// Kannada text box
+@mixin kannada-box {
+  background: linear-gradient(
+    135deg,
+    rgba($secondary-yellow, 0.1) 0%,
+    rgba($secondary-yellow, 0.2) 100%
+  );
+  border-left: 4px solid $secondary-yellow-dark;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+}

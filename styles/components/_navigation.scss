@@ -1,0 +1,127 @@
+@import "../mixins";
+
+.navigation {
+  background-color: $primary-red;
+  color: $white;
+  box-shadow: $shadow-lg;
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+
+  &__container {
+    @include container;
+    @include flex-between;
+    height: 5rem;
+  }
+
+  &__logo {
+    @include flex-center;
+    gap: $spacing-md;
+    text-decoration: none;
+    color: $white;
+    transition: opacity $transition-base;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__logo-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: $white;
+    border-radius: 50%;
+    @include flex-center;
+
+    span {
+      color: $primary-red;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__logo-text {
+    display: none;
+
+    @media (min-width: $breakpoint-md) {
+      display: block;
+    }
+  }
+
+  &__site-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  &__site-name-kannada {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  &__links {
+    display: none;
+    gap: $spacing-2xl;
+
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+    }
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-md;
+    font-weight: 500;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $primary-red-dark;
+    }
+  }
+
+  &__mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: $white;
+    padding: $spacing-sm;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $primary-red-dark;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__mobile-menu {
+    padding-bottom: $spacing-md;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__mobile-links {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  &__mobile-link {
+    color: $white;
+    text-decoration: none;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    font-weight: 500;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: $primary-red-dark;
+    }
+  }
+}
