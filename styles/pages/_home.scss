@@ -78,61 +78,19 @@
     color: $gray-700;
   }
 
-  // Event card-specific styles
-  &__event-card {
-    overflow: hidden;
-  }
+  // Events grid
+  &__events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
 
-  &__event-header {
-    @include gradient-red;
-    padding: $spacing-lg;
-    color: $white;
-  }
-
-  &__event-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: $spacing-sm;
-  }
-
-  &__event-title-kannada {
-    font-size: 1.125rem;
-    opacity: 0.9;
-  }
-
-  &__event-body {
-    padding: $spacing-lg;
-  }
-
-  &__event-details {
-    margin-bottom: $spacing-md;
-  }
-
-  &__event-detail {
-    display: flex;
-    align-items: center;
-    margin-bottom: $spacing-md;
-    color: $gray-700;
-
-    svg {
-      color: $primary-red;
-      margin-right: $spacing-sm;
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    strong {
-      margin-right: $spacing-sm;
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  &__event-description {
-    margin-top: $spacing-md;
-    color: $gray-600;
-  }
-
-  &__event-button {
-    @include button-primary;
-    margin-top: $spacing-md;
-    padding: $spacing-sm $spacing-lg;
   }
 
   &__events-view-all {
@@ -181,3 +139,5 @@
     }
   }
 }
+
+// Made with Bob

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaCalendarAlt, FaUsers, FaHeart } from "react-icons/fa";
 import { siteConfig, upcomingEvents } from "@/lib/content";
+import EventCard from "@/components/EventCard";
 
 export default function Home() {
   return (
@@ -87,50 +88,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid">
+          <div className="home__events-grid">
             {upcomingEvents.slice(0, 3).map((event) => (
-              <div key={event.id} className="card home__event-card">
-                <div className="home__event-header">
-                  <h3 className="home__event-title">{event.title}</h3>
-                  {event.titleKannada && (
-                    <p className="home__event-title-kannada">
-                      {event.titleKannada}
-                    </p>
-                  )}
-                </div>
-                <div className="home__event-body">
-                  <div className="home__event-details">
-                    <p className="home__event-detail">
-                      <FaCalendarAlt />
-                      <strong>Date:</strong>
-                      <span>
-                        {new Date(event.date).toLocaleDateString("en-GB", {
-                          day: "2-digit",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </span>
-                    </p>
-                    <p className="home__event-detail">
-                      <strong>Time:</strong> {event.time}
-                    </p>
-                    <p className="home__event-detail">
-                      <strong>Venue:</strong> {event.venue}
-                    </p>
-                  </div>
-                  <p className="home__event-description">{event.description}</p>
-                  {event.ticketLink && (
-                    <a
-                      href={event.ticketLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="home__event-button"
-                    >
-                      Book Tickets
-                    </a>
-                  )}
-                </div>
-              </div>
+              <EventCard key={event.id} event={event} />
             ))}
           </div>
 

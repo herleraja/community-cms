@@ -5,10 +5,10 @@ export interface Event {
   titleKannada?: string;
   date: string;
   time: string;
-  venue: string;
+  venueAddress: string;
   description: string;
   image?: string;
-  ticketLink?: string;
+  registerLink?: string;
 }
 
 export interface TeamMember {
@@ -83,10 +83,13 @@ export const upcomingEvents: Event[] = [
     titleKannada: "ಸಾಂಸ್ಕೃತಿಕ ಉತ್ಸವ 2026",
     date: "2026-08-15",
     time: "14:00 - 20:00",
-    venue: "Community Hall, Frankfurt",
+    venueAddress:
+      "Messe Frankfurt, Ludwig-Erhard-Anlage 1, 60327 Frankfurt am Main, Germany",
     description:
       "Join us for an evening filled with culture, community, and celebration. Experience traditional music, dance performances, delicious food, and connect with fellow community members.",
-    ticketLink: "https://tickets.example.com",
+    image:
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
+    registerLink: "https://register.example.com/cultural-festival-2026",
   },
   {
     id: "2",
@@ -94,9 +97,13 @@ export const upcomingEvents: Event[] = [
     titleKannada: "ಕ್ರೀಡಾ ದಿನ",
     date: "2026-07-20",
     time: "10:00 - 18:00",
-    venue: "Sports Complex, Munich",
+    venueAddress:
+      "Olympiapark München, Spiridon-Louis-Ring 21, 80809 München, Germany",
     description:
       "Annual sports day featuring cricket, volleyball, badminton, and various fun activities for all age groups. Bring your family and friends!",
+    image:
+      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=600&fit=crop",
+    registerLink: "https://register.example.com/sports-day-2026",
   },
   {
     id: "3",
@@ -104,9 +111,12 @@ export const upcomingEvents: Event[] = [
     titleKannada: "ದೀಪಾವಳಿ ಆಚರಣೆ",
     date: "2026-11-01",
     time: "17:00 - 22:00",
-    venue: "Convention Center, Berlin",
+    venueAddress: "Messe Berlin, Messedamm 22, 14055 Berlin, Germany",
     description:
       "Celebrate the festival of lights with traditional rituals, cultural programs, dinner, and fireworks display.",
+    image:
+      "https://images.unsplash.com/photo-1609952048342-5d5a8b194d87?w=800&h=600&fit=crop",
+    registerLink: "https://register.example.com/diwali-2026",
   },
 ];
 
@@ -114,21 +124,78 @@ export const upcomingEvents: Event[] = [
 export const pastEvents: Event[] = [
   {
     id: "p1",
-    title: "New Year Celebration 2026",
-    titleKannada: "ಹೊಸ ವರ್ಷದ ಆಚರಣೆ 2026",
-    date: "2026-01-01",
-    time: "19:00 - 01:00",
-    venue: "Grand Hotel, Cologne",
-    description: "Welcomed 2026 with music, dance, dinner, and entertainment.",
+    title: "Sankranthi Sambrama 2026",
+    titleKannada: "ಸಂಕ್ರಾಂತಿ ಸಂಭ್ರಮ 2026",
+    date: "2026-01-17",
+    time: "14:00 - 20:00",
+    venueAddress:
+      "Messe Frankfurt, Ludwig-Erhard-Anlage 1, 60327 Frankfurt am Main, Germany",
+    description:
+      "Celebration of the harvest festival together with traditional music, cultural performances, and community festivities.",
+    image:
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
   },
   {
     id: "p2",
-    title: "Ugadi Festival",
-    titleKannada: "ಉಗಾದಿ ಹಬ್ಬ",
-    date: "2026-03-22",
-    time: "11:00 - 16:00",
-    venue: "Community Center, Stuttgart",
+    title: "Kannada Rajyotsava 2025",
+    titleKannada: "ಕನ್ನಡ ರಾಜ್ಯೋತ್ಸವ 2025",
+    date: "2025-11-07",
+    time: "15:00 - 21:00",
+    venueAddress:
+      "Olympiapark München, Spiridon-Louis-Ring 21, 80809 München, Germany",
     description:
-      "Celebrated the traditional new year with special programs and feast.",
+      "Celebrating Karnataka Formation Day with cultural performances, traditional music, and community festivities.",
+    image:
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
+  },
+  {
+    id: "p3",
+    title: "Rajyotsava 2024",
+    titleKannada: "ರಾಜ್ಯೋತ್ಸವ 2024",
+    date: "2024-11-01",
+    time: "16:00 - 22:00",
+    venueAddress: "Messe Berlin, Messedamm 22, 14055 Berlin, Germany",
+    description:
+      "Celebration of Karnataka Rajyotsava! Our annual event featuring cultural performances, music, and dance.",
+    image:
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
+  },
+  {
+    id: "p4",
+    title: "IPL RCB Final Live Streaming",
+    titleKannada: "ಐಪಿಎಲ್ ಆರ್‌ಸಿಬಿ ಫೈನಲ್",
+    date: "2025-06-03",
+    time: "19:30 - 23:30",
+    venueAddress:
+      "Sports Bar Stuttgart, Königstraße 1A, 70173 Stuttgart, Germany",
+    description:
+      "Community gathering to watch the IPL final match together with snacks and beverages.",
+    image:
+      "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=600&fit=crop",
+  },
+  {
+    id: "p5",
+    title: "Sankranthi",
+    titleKannada: "ಸಂಕ್ರಾಂತಿ",
+    date: "2025-01-18",
+    time: "13:00 - 19:00",
+    venueAddress:
+      "Kölner Philharmonie, Bischofsgartenstraße 1, 50667 Köln, Germany",
+    description:
+      "Sankranthi celebrations with cultural performances, events, and traditional meal.",
+    image:
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
+  },
+  {
+    id: "p6",
+    title: "Chaats Mela",
+    titleKannada: "ಚಾಟ್ ಮೇಳ",
+    date: "2025-03-16",
+    time: "12:00 - 18:00",
+    venueAddress: "Hamburg Messe, Messeplatz 1, 20357 Hamburg, Germany",
+    description:
+      "A delightful evening of street food, music, and theatre in the Indian theatre.",
+    image:
+      "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&h=600&fit=crop",
   },
 ];

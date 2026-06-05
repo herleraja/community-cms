@@ -1,0 +1,245 @@
+@import "../mixins";
+
+.event-details {
+  min-height: 100vh;
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $gray-800;
+    font-weight: 600;
+    margin-bottom: $spacing-lg;
+    transition: all $transition-base;
+
+    svg {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      color: $primary-red;
+      transform: translateX(-4px);
+    }
+  }
+
+  &__title-kannada {
+    font-size: 1.5rem;
+    color: $gray-700;
+    margin-top: $spacing-md;
+    font-weight: 600;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__container {
+    max-width: 75rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3xl;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-xl;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__meta-item {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-lg;
+    background: $gray-50;
+    border-radius: $radius-lg;
+    border: 2px solid $gray-100;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: $primary-red;
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &__meta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: $primary-red;
+    color: $white;
+    border-radius: $radius-md;
+    flex-shrink: 0;
+
+    svg {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__meta-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $gray-600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__meta-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $gray-900;
+    line-height: 1.4;
+  }
+
+  &__description {
+    padding: $spacing-2xl;
+    background: $white;
+    border-radius: $radius-lg;
+    border: 2px solid $gray-100;
+  }
+
+  &__map-section {
+    padding: $spacing-2xl;
+    background: $white;
+    border-radius: $radius-lg;
+    border: 2px solid $gray-100;
+  }
+
+  &__map-container {
+    margin-top: $spacing-lg;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+
+    iframe {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__map-link {
+    background: $gray-50;
+    padding: $spacing-md;
+    text-align: right;
+    border-top: 1px solid $gray-200;
+
+    a {
+      color: $primary-red;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $primary-red-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__map-loading,
+  &__map-error {
+    padding: $spacing-3xl;
+    text-align: center;
+    background: $gray-50;
+    border-radius: $radius-lg;
+    border: 2px dashed $gray-300;
+
+    p {
+      color: $gray-600;
+      font-size: 1rem;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__map-error-link {
+    @include button-primary;
+    display: inline-block;
+    margin-top: $spacing-md;
+  }
+
+  &__section-title {
+    @include heading-3;
+    color: $gray-900;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: $gray-700;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-xl 0;
+  }
+
+  &__register-button {
+    @include button-primary;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-size: 1.125rem;
+    padding: $spacing-lg $spacing-3xl;
+    box-shadow: $shadow-lg;
+
+    svg {
+      font-size: 1.25rem;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-2xl;
+    }
+  }
+
+  &__past-badge {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-lg;
+
+    span {
+      display: inline-block;
+      padding: $spacing-md $spacing-xl;
+      background: $gray-200;
+      color: $gray-700;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: $radius-full;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+}
+
+// Made with Bob

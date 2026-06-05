@@ -1,10 +1,5 @@
 import { upcomingEvents, pastEvents } from "@/lib/content";
-import {
-  FaCalendarAlt,
-  FaClock,
-  FaMapMarkerAlt,
-  FaTicketAlt,
-} from "react-icons/fa";
+import EventCard from "@/components/EventCard";
 
 export default function EventsPage() {
   return (
@@ -28,64 +23,9 @@ export default function EventsPage() {
           >
             Upcoming Events
           </h2>
-          <div className="events__upcoming-grid">
+          <div className="events__grid">
             {upcomingEvents.map((event) => (
-              <div key={event.id} className="card events__event-card">
-                <div className="events__event-header">
-                  <h3 className="events__event-title">{event.title}</h3>
-                  {event.titleKannada && (
-                    <p className="events__event-title-kannada">
-                      {event.titleKannada}
-                    </p>
-                  )}
-                </div>
-                <div className="events__event-body">
-                  <div className="events__event-details">
-                    <div className="events__event-detail">
-                      <FaCalendarAlt />
-                      <div>
-                        <strong>Date:</strong>
-                        <span>
-                          {new Date(event.date).toLocaleDateString("en-GB", {
-                            weekday: "long",
-                            day: "2-digit",
-                            month: "long",
-                            year: "numeric",
-                          })}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="events__event-detail">
-                      <FaClock />
-                      <div>
-                        <strong>Time:</strong>
-                        <span>{event.time}</span>
-                      </div>
-                    </div>
-                    <div className="events__event-detail">
-                      <FaMapMarkerAlt />
-                      <div>
-                        <strong>Venue:</strong>
-                        <span>{event.venue}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="events__event-description">
-                    {event.description}
-                  </p>
-                  {event.ticketLink && (
-                    <a
-                      href={event.ticketLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="events__event-button"
-                    >
-                      <FaTicketAlt />
-                      Book Tickets Now
-                    </a>
-                  )}
-                </div>
-              </div>
+              <EventCard key={event.id} event={event} />
             ))}
           </div>
         </div>
@@ -99,35 +39,9 @@ export default function EventsPage() {
           >
             Past Events
           </h2>
-          <div className="grid">
+          <div className="events__grid">
             {pastEvents.map((event) => (
-              <div key={event.id} className="card events__past-card">
-                <div className="events__past-header">
-                  <h3 className="events__past-title">{event.title}</h3>
-                  {event.titleKannada && (
-                    <p className="events__past-title-kannada">
-                      {event.titleKannada}
-                    </p>
-                  )}
-                </div>
-                <div className="events__past-body">
-                  <p className="events__past-detail">
-                    <FaCalendarAlt />
-                    {new Date(event.date).toLocaleDateString("en-GB", {
-                      day: "2-digit",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
-                  <p className="events__past-detail">
-                    <FaMapMarkerAlt />
-                    {event.venue}
-                  </p>
-                  <p className="events__past-description">
-                    {event.description}
-                  </p>
-                </div>
-              </div>
+              <EventCard key={event.id} event={event} showFullDetails={false} />
             ))}
           </div>
         </div>

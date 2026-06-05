@@ -3,136 +3,19 @@
 .events {
   min-height: 100vh;
 
-  // Upcoming events grid
-  &__upcoming-grid {
+  // Events grid - unified for both upcoming and past events
+  &__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: $spacing-2xl;
 
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  // Event card
-  &__event-card {
-    overflow: hidden;
-    border: 2px solid $gray-100;
-    transition: all $transition-base;
-
-    &:hover {
-      box-shadow: $shadow-2xl;
-      transform: translateY(-4px);
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  &__event-header {
-    @include gradient-red;
-    padding: $spacing-lg;
-    color: $white;
-  }
-
-  &__event-title {
-    @include heading-3;
-    margin-bottom: $spacing-sm;
-  }
-
-  &__event-title-kannada {
-    font-size: 1.25rem;
-    opacity: 0.9;
-  }
-
-  &__event-body {
-    padding: $spacing-lg;
-  }
-
-  &__event-details {
-    margin-bottom: $spacing-lg;
-  }
-
-  &__event-detail {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: $spacing-md;
-
-    svg {
-      color: $primary-red;
-      font-size: 1.25rem;
-      margin-right: $spacing-md;
-      margin-top: 0.25rem;
-      flex-shrink: 0;
-    }
-
-    strong {
-      color: $gray-900;
-      margin-right: $spacing-sm;
-    }
-
-    span {
-      color: $gray-700;
-    }
-  }
-
-  &__event-description {
-    color: $gray-600;
-    line-height: 1.75;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__event-button {
-    @include button-primary;
-    display: inline-flex;
-    align-items: center;
-    gap: $spacing-sm;
-
-    svg {
-      font-size: 1rem;
-    }
-  }
-
-  // Past events
-  &__past-card {
-    overflow: hidden;
-  }
-
-  &__past-header {
-    background: linear-gradient(to right, $gray-600 0%, $gray-700 100%);
-    padding: $spacing-md;
-    color: $white;
-  }
-
-  &__past-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
-
-  &__past-title-kannada {
-    font-size: 0.875rem;
-    opacity: 0.9;
-  }
-
-  &__past-body {
-    padding: $spacing-md;
-  }
-
-  &__past-detail {
-    display: flex;
-    align-items: center;
-    margin-bottom: $spacing-sm;
-    font-size: 0.875rem;
-    color: $gray-700;
-
-    svg {
-      color: $gray-600;
-      margin-right: $spacing-sm;
-    }
-  }
-
-  &__past-description {
-    margin-top: $spacing-md;
-    font-size: 0.875rem;
-    color: $gray-600;
   }
 
   // Subscribe section
@@ -226,3 +109,5 @@
     }
   }
 }
+
+// Made with Bob
