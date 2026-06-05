@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { FaCalendarAlt, FaUsers, FaHeart } from "react-icons/fa";
+import { useIntl } from "react-intl";
 import { siteConfig, upcomingEvents } from "@/lib/content";
 import EventCard from "@/components/EventCard";
+import { homeMessages } from "@/lib/i18n";
 
 export default function Home() {
+  const { formatMessage } = useIntl();
   return (
     <div className="home">
       <section className="hero hero--yellow">
@@ -20,10 +25,10 @@ export default function Home() {
           </p>
           <div className="home__hero-buttons">
             <Link href="/events" className="home__hero-button-primary">
-              View Events
+              {formatMessage(homeMessages.viewEvents)}
             </Link>
             <Link href="/contact" className="home__hero-button-secondary">
-              Become a Member
+              {formatMessage(homeMessages.becomeMember)}
             </Link>
           </div>
         </div>
@@ -32,7 +37,9 @@ export default function Home() {
       <section className="section section--white">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Welcome to Our Community</h2>
+            <h2 className="section-title">
+              {formatMessage(homeMessages.welcomeTitle)}
+            </h2>
             <p className="section-description">{siteConfig.description}</p>
           </div>
 
@@ -43,10 +50,11 @@ export default function Home() {
                   <FaCalendarAlt />
                 </div>
               </div>
-              <h3 className="home__feature-title">Events & Festivals</h3>
+              <h3 className="home__feature-title">
+                {formatMessage(homeMessages.featureEventsTitle)}
+              </h3>
               <p className="home__feature-description">
-                Join us for cultural celebrations, festivals, and community
-                gatherings throughout the year.
+                {formatMessage(homeMessages.featureEventsDescription)}
               </p>
             </div>
 
@@ -56,10 +64,11 @@ export default function Home() {
                   <FaUsers />
                 </div>
               </div>
-              <h3 className="home__feature-title">Community Unity</h3>
+              <h3 className="home__feature-title">
+                {formatMessage(homeMessages.featureUnityTitle)}
+              </h3>
               <p className="home__feature-description">
-                Connect with fellow community members and build lasting
-                friendships and relationships.
+                {formatMessage(homeMessages.featureUnityDescription)}
               </p>
             </div>
 
@@ -69,10 +78,11 @@ export default function Home() {
                   <FaHeart />
                 </div>
               </div>
-              <h3 className="home__feature-title">Cultural Heritage</h3>
+              <h3 className="home__feature-title">
+                {formatMessage(homeMessages.featureHeritageTitle)}
+              </h3>
               <p className="home__feature-description">
-                Preserve and celebrate our rich cultural traditions, language,
-                and heritage.
+                {formatMessage(homeMessages.featureHeritageDescription)}
               </p>
             </div>
           </div>
@@ -82,9 +92,11 @@ export default function Home() {
       <section className="section section--gray">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Upcoming Events</h2>
+            <h2 className="section-title">
+              {formatMessage(homeMessages.upcomingEventsTitle)}
+            </h2>
             <p className="section-description">
-              Don't miss out on our exciting upcoming events!
+              {formatMessage(homeMessages.upcomingEventsDescription)}
             </p>
           </div>
 
@@ -96,7 +108,7 @@ export default function Home() {
 
           <div className="home__events-view-all">
             <Link href="/events" className="home__view-all-button">
-              View All Events
+              {formatMessage(homeMessages.viewAllEvents)}
             </Link>
           </div>
         </div>
@@ -104,13 +116,14 @@ export default function Home() {
 
       <section className="home__cta">
         <div className="home__cta-container">
-          <h2 className="home__cta-title">Join Our Community Today!</h2>
+          <h2 className="home__cta-title">
+            {formatMessage(homeMessages.ctaTitle)}
+          </h2>
           <p className="home__cta-description">
-            Be part of something special. Connect with your roots, celebrate
-            your culture, and make lasting memories.
+            {formatMessage(homeMessages.ctaDescription)}
           </p>
           <Link href="/contact" className="home__cta-button">
-            Get in Touch
+            {formatMessage(homeMessages.getInTouch)}
           </Link>
         </div>
       </section>

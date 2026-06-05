@@ -1,14 +1,21 @@
+"use client";
+
 import { aboutContent, teamMembers } from "@/lib/content";
 import { FaCheckCircle } from "react-icons/fa";
+import { useIntl } from "react-intl";
+import { aboutMessages } from "@/lib/i18n";
 
 export default function AboutPage() {
+  const { formatMessage } = useIntl();
   return (
     <div className="about">
       <section className="hero hero--red">
         <div className="hero-container">
-          <h1 className="hero-title">About Us</h1>
+          <h1 className="hero-title">
+            {formatMessage(aboutMessages.heroTitle)}
+          </h1>
           <p className="hero-subtitle">
-            Learn more about our community and mission
+            {formatMessage(aboutMessages.heroSubtitle)}
           </p>
         </div>
       </section>
@@ -17,14 +24,14 @@ export default function AboutPage() {
         <div className="container">
           <div className="about__mission-grid">
             <div className="about__mission-content">
-              <h2>Our Mission</h2>
+              <h2>{formatMessage(aboutMessages.missionTitle)}</h2>
               <p>{aboutContent.mission}</p>
               <div className="kannada-box">
                 <p>{aboutContent.missionKannada}</p>
               </div>
             </div>
             <div className="card-gradient card-gradient--yellow about__vision-card">
-              <h3>Our Vision</h3>
+              <h3>{formatMessage(aboutMessages.visionTitle)}</h3>
               <p>{aboutContent.vision}</p>
             </div>
           </div>
@@ -37,7 +44,7 @@ export default function AboutPage() {
             className="section-title"
             style={{ marginBottom: "3rem", textAlign: "center" }}
           >
-            Our Core Values
+            {formatMessage(aboutMessages.coreValuesTitle)}
           </h2>
           <div className="grid grid--gap-lg">
             {aboutContent.values.map((value, index) => (
@@ -55,8 +62,8 @@ export default function AboutPage() {
       <section className="section section--white">
         <div className="container">
           <div className="about__team-header">
-            <h2>Our Team</h2>
-            <p>Meet the dedicated individuals who make our community thrive</p>
+            <h2>{formatMessage(aboutMessages.teamTitle)}</h2>
+            <p>{formatMessage(aboutMessages.teamSubtitle)}</p>
           </div>
           <div className="grid">
             {teamMembers.map((member) => (
@@ -77,15 +84,21 @@ export default function AboutPage() {
           <div className="grid" style={{ textAlign: "center" }}>
             <div className="about__impact-card">
               <div className="about__impact-number">500+</div>
-              <div className="about__impact-label">Active Members</div>
+              <div className="about__impact-label">
+                {formatMessage(aboutMessages.activeMembers)}
+              </div>
             </div>
             <div className="about__impact-card">
               <div className="about__impact-number">50+</div>
-              <div className="about__impact-label">Events Organized</div>
+              <div className="about__impact-label">
+                {formatMessage(aboutMessages.eventsOrganized)}
+              </div>
             </div>
             <div className="about__impact-card">
               <div className="about__impact-number">10+</div>
-              <div className="about__impact-label">Years of Service</div>
+              <div className="about__impact-label">
+                {formatMessage(aboutMessages.yearsOfService)}
+              </div>
             </div>
           </div>
         </div>
@@ -96,14 +109,14 @@ export default function AboutPage() {
           className="container"
           style={{ maxWidth: "64rem", textAlign: "center" }}
         >
-          <h2 className="about__join-title">Want to Get Involved?</h2>
+          <h2 className="about__join-title">
+            {formatMessage(aboutMessages.joinTitle)}
+          </h2>
           <p className="about__join-description">
-            Join us in our mission to build a stronger, more connected
-            community. Whether you want to volunteer, attend events, or become a
-            member, we'd love to hear from you!
+            {formatMessage(aboutMessages.joinDescription)}
           </p>
           <a href="/contact" className="about__join-button">
-            Contact Us Today
+            {formatMessage(aboutMessages.contactToday)}
           </a>
         </div>
       </section>

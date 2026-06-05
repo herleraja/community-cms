@@ -8,7 +8,9 @@ import {
   FaMapMarkerAlt,
   FaUserPlus,
 } from "react-icons/fa";
+import { useIntl } from "react-intl";
 import { Event } from "@/lib/content";
+import { eventCardMessages } from "@/lib/i18n";
 
 interface EventCardProps {
   event: Event;
@@ -19,6 +21,8 @@ export default function EventCard({
   event,
   showFullDetails = true,
 }: EventCardProps) {
+  const { formatMessage, locale } = useIntl();
+
   return (
     <div className="event-card">
       <Link href={`/events/${event.id}`} className="event-card__link">
@@ -39,7 +43,7 @@ export default function EventCard({
           <div className="event-card__meta">
             <p className="event-card__meta-item">
               <FaCalendarAlt />
-              {new Date(event.date).toLocaleDateString("en-US", {
+              {new Date(event.date).toLocaleDateString(locale, {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
@@ -73,12 +77,10 @@ export default function EventCard({
             onClick={(e) => e.stopPropagation()}
           >
             <FaUserPlus />
-            Register Now
+            {formatMessage(eventCardMessages.registerNow)}
           </a>
         </div>
       )}
     </div>
   );
 }
-
-// Made with Bob

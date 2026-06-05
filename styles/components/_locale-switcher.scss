@@ -1,0 +1,111 @@
+@import "../mixins";
+
+.navigation {
+  &__locale-switcher {
+    position: relative;
+    width: 100%;
+
+    @media (min-width: $breakpoint-sm) {
+      width: auto;
+    }
+  }
+
+  &__locale-button {
+    @include flex-center;
+    justify-content: flex-start;
+    gap: $spacing-sm;
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-lg;
+    border: 1px solid rgba($white, 0.2);
+    background: rgba($white, 0.1);
+    color: $white;
+    backdrop-filter: blur(8px);
+    transition:
+      background-color $transition-base,
+      border-color $transition-base,
+      transform $transition-base;
+
+    @media (min-width: $breakpoint-sm) {
+      width: auto;
+    }
+
+    &:hover {
+      background: rgba($white, 0.2);
+      border-color: rgba($white, 0.3);
+    }
+  }
+
+  &__locale-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  &__locale-current {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__locale-menu {
+    position: fixed;
+    left: $spacing-md;
+    right: $spacing-md;
+    margin-top: $spacing-sm;
+    background: rgba($white, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: $radius-lg;
+    box-shadow: $shadow-xl;
+    border: 1px solid rgba($white, 0.2);
+    overflow: hidden;
+    z-index: 9999;
+
+    @media (min-width: $breakpoint-sm) {
+      position: absolute;
+      left: auto;
+      right: 0;
+      width: 16rem;
+    }
+  }
+
+  &__locale-menu-content {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  &__locale-option {
+    width: 100%;
+    padding: $spacing-md;
+    border: none;
+    background: transparent;
+    text-align: left;
+    color: $gray-800;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background: rgba($secondary-yellow, 0.2);
+    }
+
+    &--active {
+      background: rgba($secondary-yellow, 0.35);
+      color: $gray-900;
+      font-weight: 600;
+    }
+  }
+
+  &__locale-option-content {
+    @include flex-between;
+    gap: $spacing-md;
+  }
+
+  &__locale-native-name {
+    font-weight: 500;
+  }
+
+  &__locale-name {
+    font-size: 0.875rem;
+    color: $gray-600;
+  }
+}
+
+// Made with Bob

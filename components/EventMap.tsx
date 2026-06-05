@@ -111,5 +111,3 @@ export default function EventMap({ venueAddress }: EventMapProps) {
     </div>
   );
 }
-
-// Made with Bob

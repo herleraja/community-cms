@@ -1,16 +1,21 @@
+"use client";
+
+import { useIntl } from "react-intl";
 import { upcomingEvents, pastEvents } from "@/lib/content";
 import EventCard from "@/components/EventCard";
+import { eventsMessages } from "@/lib/i18n";
 
 export default function EventsPage() {
+  const { formatMessage } = useIntl();
   return (
     <div className="events">
       <section className="hero hero--yellow">
         <div className="hero-container">
           <h1 className="hero-title" style={{ color: "#111827" }}>
-            Events
+            {formatMessage(eventsMessages.heroTitle)}
           </h1>
           <p className="hero-subtitle" style={{ color: "#1f2937" }}>
-            Join us for exciting cultural celebrations and community gatherings
+            {formatMessage(eventsMessages.heroSubtitle)}
           </p>
         </div>
       </section>
@@ -21,7 +26,7 @@ export default function EventsPage() {
             className="section-title"
             style={{ marginBottom: "3rem", textAlign: "center" }}
           >
-            Upcoming Events
+            {formatMessage(eventsMessages.upcomingTitle)}
           </h2>
           <div className="events__grid">
             {upcomingEvents.map((event) => (
@@ -37,7 +42,7 @@ export default function EventsPage() {
             className="section-title"
             style={{ marginBottom: "3rem", textAlign: "center" }}
           >
-            Past Events
+            {formatMessage(eventsMessages.pastTitle)}
           </h2>
           <div className="events__grid">
             {pastEvents.map((event) => (
@@ -53,42 +58,45 @@ export default function EventsPage() {
           style={{ maxWidth: "64rem", textAlign: "center" }}
         >
           <h2 className="events__subscribe-title">
-            Stay Updated on Our Events
+            {formatMessage(eventsMessages.subscribeTitle)}
           </h2>
           <p className="events__subscribe-description">
-            Subscribe to get updates on our events and never miss out on
-            community celebrations!
+            {formatMessage(eventsMessages.subscribeDescription)}
           </p>
           <div className="events__subscribe-form">
             <input
               type="email"
-              placeholder="Enter your email address"
+              placeholder={formatMessage(eventsMessages.subscribePlaceholder)}
               className="events__subscribe-input"
             />
-            <button className="events__subscribe-button">Subscribe</button>
+            <button className="events__subscribe-button">
+              {formatMessage(eventsMessages.subscribeButton)}
+            </button>
           </div>
         </div>
       </section>
 
       <section className="section section--white">
         <div className="container" style={{ maxWidth: "64rem" }}>
-          <h2 className="events__guidelines-title">Event Guidelines</h2>
+          <h2 className="events__guidelines-title">
+            {formatMessage(eventsMessages.guidelinesTitle)}
+          </h2>
           <div className="kannada-box" style={{ borderRadius: "0.75rem" }}>
             <ul className="events__guidelines-list">
               <li className="events__guidelines-item">
-                Please arrive 15 minutes before the event start time
+                {formatMessage(eventsMessages.guidelineArrival)}
               </li>
               <li className="events__guidelines-item">
-                Tickets are non-refundable but transferable
+                {formatMessage(eventsMessages.guidelineTickets)}
               </li>
               <li className="events__guidelines-item">
-                Traditional attire is encouraged but not mandatory
+                {formatMessage(eventsMessages.guidelineAttire)}
               </li>
               <li className="events__guidelines-item">
-                Photography and videography are allowed for personal use
+                {formatMessage(eventsMessages.guidelinePhotography)}
               </li>
               <li className="events__guidelines-item">
-                For any queries, please contact us through our contact page
+                {formatMessage(eventsMessages.guidelineQueries)}
               </li>
             </ul>
           </div>

@@ -10,6 +10,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
     "test": "echo \"No tests configured yet\" && exit 0",
+    "extract": "formatjs extract 'app/**/*.{ts,tsx}' 'components/**/*.{ts,tsx}' --out-file lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
+    "compile": "formatjs compile lang/en.json --out-file messages/en.json",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -26,9 +28,11 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-icons": "^5.0.1",
+    "react-intl": "^10.1.13",
     "sass": "^1.100.0"
   },
   "devDependencies": {
+    "@formatjs/cli": "^6.2.12",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

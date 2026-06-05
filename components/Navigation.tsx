@@ -3,16 +3,22 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useIntl } from "react-intl";
 import { siteConfig } from "@/lib/content";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { useLocale } from "@/components/AppProviders";
+import { navigationMessages } from "@/lib/i18n";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { formatMessage } = useIntl();
+  const { locale, setLocale } = useLocale();
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/events", label: "Events" },
-    { href: "/contact", label: "Contact Us" },
+    { href: "/", label: formatMessage(navigationMessages.home) },
+    { href: "/about", label: formatMessage(navigationMessages.about) },
+    { href: "/events", label: formatMessage(navigationMessages.events) },
+    { href: "/contact", label: formatMessage(navigationMessages.contact) },
   ];
 
   return (
@@ -36,12 +42,13 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
+          <LocaleSwitcher currentLocale={locale} onLocaleChange={setLocale} />
         </div>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="navigation__mobile-toggle"
-          aria-label="Toggle menu"
+          aria-label={formatMessage(navigationMessages.toggleMenu)}
         >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
@@ -60,6 +67,13 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <LocaleSwitcher
+              currentLocale={locale}
+              onLocaleChange={(nextLocale) => {
+                setLocale(nextLocale);
+                setIsOpen(false);
+              }}
+            />
           </div>
         </div>
       )}

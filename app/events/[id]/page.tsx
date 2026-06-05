@@ -1,6 +1,10 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { use } from "react";
+import { useIntl } from "react-intl";
 import { upcomingEvents, pastEvents } from "@/lib/content";
 import {
   FaCalendarAlt,
@@ -10,14 +14,15 @@ import {
   FaArrowLeft,
 } from "react-icons/fa";
 import EventMap from "@/components/EventMap";
+import { eventDetailsMessages } from "@/lib/i18n";
 
-export default async function EventDetailsPage({
+export default function EventDetailsPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  // Await params as it's now a Promise in Next.js 15+
-  const { id } = await params;
+  const { formatMessage, locale } = useIntl();
+  const { id } = use(params);
 
   // Find event in both upcoming and past events
   const allEvents = [...upcomingEvents, ...pastEvents];
@@ -35,7 +40,7 @@ export default async function EventDetailsPage({
         <div className="hero-container">
           <Link href="/events" className="event-details__back-link">
             <FaArrowLeft />
-            Back to Events
+            {formatMessage(eventDetailsMessages.backToEvents)}
           </Link>
           <h1 className="hero-title" style={{ color: "#111827" }}>
             {event.title}
@@ -69,9 +74,11 @@ export default async function EventDetailsPage({
                     <FaCalendarAlt />
                   </div>
                   <div>
-                    <h3 className="event-details__meta-label">Date</h3>
+                    <h3 className="event-details__meta-label">
+                      {formatMessage(eventDetailsMessages.date)}
+                    </h3>
                     <p className="event-details__meta-value">
-                      {new Date(event.date).toLocaleDateString("en-US", {
+                      {new Date(event.date).toLocaleDateString(locale, {
                         weekday: "long",
                         month: "long",
                         day: "numeric",
@@ -86,7 +93,9 @@ export default async function EventDetailsPage({
                     <FaClock />
                   </div>
                   <div>
-                    <h3 className="event-details__meta-label">Time</h3>
+                    <h3 className="event-details__meta-label">
+                      {formatMessage(eventDetailsMessages.time)}
+                    </h3>
                     <p className="event-details__meta-value">{event.time}</p>
                   </div>
                 </div>
@@ -96,7 +105,9 @@ export default async function EventDetailsPage({
                     <FaMapMarkerAlt />
                   </div>
                   <div>
-                    <h3 className="event-details__meta-label">Venue</h3>
+                    <h3 className="event-details__meta-label">
+                      {formatMessage(eventDetailsMessages.venue)}
+                    </h3>
                     <p className="event-details__meta-value">
                       {event.venueAddress}
                     </p>
@@ -106,7 +117,7 @@ export default async function EventDetailsPage({
 
               <div className="event-details__description">
                 <h2 className="event-details__section-title">
-                  About This Event
+                  {formatMessage(eventDetailsMessages.aboutThisEvent)}
                 </h2>
                 <p className="event-details__text">{event.description}</p>
               </div>
@@ -124,14 +135,14 @@ export default async function EventDetailsPage({
                     className="event-details__register-button"
                   >
                     <FaUserPlus />
-                    Register Now
+                    {formatMessage(eventDetailsMessages.registerNow)}
                   </a>
                 </div>
               )}
 
               {!isUpcoming && (
                 <div className="event-details__past-badge">
-                  <span>Past Event</span>
+                  <span>{formatMessage(eventDetailsMessages.pastEvent)}</span>
                 </div>
               )}
             </div>
@@ -141,5 +152,3 @@ export default async function EventDetailsPage({
     </div>
   );
 }
-
-// Made with Bob

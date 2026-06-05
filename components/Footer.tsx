@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   FaFacebook,
@@ -9,9 +11,12 @@ import {
   FaPhone,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { useIntl } from "react-intl";
 import { siteConfig } from "@/lib/content";
+import { footerMessages, navigationMessages } from "@/lib/i18n";
 
 export default function Footer() {
+  const { formatMessage } = useIntl();
   const getSocialIcon = (iconName: string) => {
     const icons: Record<string, React.ReactElement> = {
       FaFacebook: <FaFacebook size={24} />,
@@ -33,33 +38,37 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="footer__section-title">Quick Links</h3>
+            <h3 className="footer__section-title">
+              {formatMessage(footerMessages.quickLinks)}
+            </h3>
             <ul className="footer__links">
               <li className="footer__link-item">
                 <Link href="/" className="footer__link">
-                  Home
+                  {formatMessage(navigationMessages.home)}
                 </Link>
               </li>
               <li className="footer__link-item">
                 <Link href="/about" className="footer__link">
-                  About Us
+                  {formatMessage(navigationMessages.about)}
                 </Link>
               </li>
               <li className="footer__link-item">
                 <Link href="/events" className="footer__link">
-                  Events
+                  {formatMessage(navigationMessages.events)}
                 </Link>
               </li>
               <li className="footer__link-item">
                 <Link href="/contact" className="footer__link">
-                  Contact Us
+                  {formatMessage(navigationMessages.contact)}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="footer__section-title">Contact Us</h3>
+            <h3 className="footer__section-title">
+              {formatMessage(footerMessages.contactUs)}
+            </h3>
             <ul className="footer__contact-list">
               <li className="footer__contact-item">
                 <FaEnvelope />
@@ -94,8 +103,8 @@ export default function Footer() {
               ))}
             </div>
             <p className="footer__copyright">
-              © {new Date().getFullYear()} {siteConfig.name}. All rights
-              reserved.
+              © {new Date().getFullYear()} {siteConfig.name}.{" "}
+              {formatMessage(footerMessages.allRightsReserved)}
             </p>
           </div>
         </div>
