@@ -67,18 +67,29 @@ export default function EventCard({
         </div>
       </Link>
 
-      {event.registerLink && (
+      {(event.googleFormUrl || event.registerLink) && (
         <div className="event-card__action">
-          <a
-            href={event.registerLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="event-card__button"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <FaUserPlus />
-            {formatMessage(eventCardMessages.registerNow)}
-          </a>
+          {event.googleFormUrl ? (
+            <Link
+              href={`/events/${event.id}`}
+              className="event-card__button"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FaUserPlus />
+              {formatMessage(eventCardMessages.registerNow)}
+            </Link>
+          ) : (
+            <a
+              href={event.registerLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="event-card__button"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FaUserPlus />
+              {formatMessage(eventCardMessages.registerNow)}
+            </a>
+          )}
         </div>
       )}
     </div>

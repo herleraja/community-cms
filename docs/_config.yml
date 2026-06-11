@@ -1,0 +1,29 @@
+# GitHub Pages Configuration
+title: Community CMS Documentation
+description: Complete documentation for Community CMS - A modern Next.js-based Content Management System for community organizations
+theme: jekyll-theme-cayman
+show_downloads: false
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Setup Guide
+    url: /SETUP
+  - title: SCSS Structure
+    url: /SCSS-STRUCTURE
+  - title: Google Forms Setup
+    url: /GOOGLE_FORMS_SETUP
+
+# GitHub repository
+github:
+  repository_url: https://github.com/yourusername/community-cms
+  is_project_page: true
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Made with Bob

@@ -10,7 +10,6 @@ import {
   FaCalendarAlt,
   FaClock,
   FaMapMarkerAlt,
-  FaUserPlus,
   FaArrowLeft,
 } from "react-icons/fa";
 import EventMap from "@/components/EventMap";
@@ -52,22 +51,21 @@ export default function EventDetailsPage({
       </section>
 
       <section className="section section--white">
-        <div className="container event-details__container">
-          <div className="event-details__content">
-            {event.image && (
-              <div className="event-details__image-wrapper">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  width={1200}
-                  height={600}
-                  className="event-details__image"
-                  priority
-                />
-              </div>
-            )}
-
-            <div className="event-details__info">
+        <div className="event-details__container">
+          <div className="event-details__layout">
+            <div className="event-details__main">
+              {event.image && (
+                <div className="event-details__image-wrapper">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    width={1200}
+                    height={600}
+                    className="event-details__image"
+                    priority
+                  />
+                </div>
+              )}
               <div className="event-details__meta">
                 <div className="event-details__meta-item">
                   <div className="event-details__meta-icon">
@@ -126,26 +124,39 @@ export default function EventDetailsPage({
                 <EventMap venueAddress={event.venueAddress} />
               )}
 
-              {isUpcoming && event.registerLink && (
-                <div className="event-details__actions">
-                  <a
-                    href={event.registerLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="event-details__register-button"
-                  >
-                    <FaUserPlus />
-                    {formatMessage(eventDetailsMessages.registerNow)}
-                  </a>
-                </div>
-              )}
-
               {!isUpcoming && (
                 <div className="event-details__past-badge">
                   <span>{formatMessage(eventDetailsMessages.pastEvent)}</span>
                 </div>
               )}
             </div>
+
+            {isUpcoming && event.googleFormUrl && (
+              <div className="event-details__sidebar">
+                <div className="event-details__registration">
+                  <h2 className="event-details__section-title">
+                    {formatMessage(eventDetailsMessages.registerNow)}
+                  </h2>
+                  <p className="event-details__registration-description">
+                    Fill out the form below to register for this event. You'll
+                    receive a confirmation email with event details and calendar
+                    invite.
+                  </p>
+                  <div className="event-details__google-form">
+                    <iframe
+                      src={event.googleFormUrl}
+                      width="100%"
+                      height="1000"
+                      frameBorder="0"
+                      marginHeight={0}
+                      marginWidth={0}
+                    >
+                      Loading…
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

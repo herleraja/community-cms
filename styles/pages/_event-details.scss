@@ -34,13 +34,47 @@
   }
 
   &__container {
-    max-width: 75rem;
+    max-width: 100%;
+    padding: 0 $spacing-xl;
+
+    @media (min-width: $breakpoint-xl) {
+      padding: 0 $spacing-3xl;
+    }
   }
 
-  &__content {
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 1fr 500px;
+      gap: $spacing-3xl;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      grid-template-columns: 1fr 600px;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &__main {
     display: flex;
     flex-direction: column;
-    gap: $spacing-3xl;
+    gap: $spacing-2xl;
+    min-width: 0; // Prevent grid blowout
+  }
+
+  &__sidebar {
+    position: relative;
+
+    @media (min-width: $breakpoint-lg) {
+      position: sticky;
+      top: $spacing-xl;
+      align-self: flex-start;
+      max-height: calc(100vh - 2 * $spacing-xl);
+      overflow-y: auto;
+    }
   }
 
   &__image-wrapper {
@@ -238,6 +272,44 @@
       border-radius: $radius-full;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+  }
+
+  // Registration section with embedded Google Form
+  &__registration {
+    padding: $spacing-xl;
+    background: $white;
+    border-radius: $radius-lg;
+    border: 2px solid $gray-100;
+    box-shadow: $shadow-lg;
+    position: relative;
+
+    @media (max-width: 1023px) {
+      margin-top: $spacing-2xl;
+    }
+  }
+
+  &__registration-description {
+    font-size: 0.95rem;
+    color: $gray-600;
+    margin-bottom: $spacing-lg;
+    line-height: 1.6;
+  }
+
+  &__google-form {
+    border-radius: $radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: 1000px;
+      border: none;
+
+      @media (max-width: 1023px) {
+        min-height: 800px;
+      }
     }
   }
 }

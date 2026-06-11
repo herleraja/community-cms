@@ -9,6 +9,7 @@ export interface Event {
   description: string;
   image?: string;
   registerLink?: string;
+  googleFormUrl?: string; // Embedded Google Form URL
 }
 
 export interface TeamMember {
@@ -90,6 +91,8 @@ export const upcomingEvents: Event[] = [
     image:
       "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
     registerLink: "https://register.example.com/cultural-festival-2026",
+    googleFormUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdosz-GeWKiSffGzAa5bbMn4gk_-YCjAnUKy47Y7n36S9KR8A/viewform?embedded=true",
   },
   {
     id: "2",

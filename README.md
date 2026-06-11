@@ -8,6 +8,7 @@ A modern Next.js-based Content Management System for community organizations, in
 - **About Us Page**: Mission, vision, values, team members, and community impact statistics
 - **Events Page**: Upcoming and past events with detailed information and ticket booking
 - **Contact Us Page**: Contact form, contact information, membership benefits, and FAQ
+- **Event Registration**: Google Forms integration with automatic email notifications and calendar invites
 - **Responsive Design**: Mobile-first design that works on all devices
 - **Bilingual Support**: English and Kannada language content
 - **CMS Structure**: Easy-to-manage content through centralized data files
@@ -30,31 +31,7 @@ This application is inspired by successful Kannada community organizations:
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+ and npm installed on your system
-
-### Installation
-
-1. Navigate to the project directory:
-
-```bash
-cd community-cms
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Run the development server:
-
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+See **[SETUP.md](./docs/SETUP.md)** for detailed installation and setup instructions.
 
 ## Project Structure
 
@@ -77,79 +54,23 @@ community-cms/
 
 ## Content Management
 
-All content is managed through the `lib/content.ts` file. This acts as a simple CMS where you can:
+All content is managed through the `lib/content.ts` file. This acts as a simple CMS where you can update site configuration, manage events, team members, and more.
 
-- Update site configuration (name, tagline, contact info, social links)
-- Manage about us content (mission, vision, values)
-- Add/edit team members
-- Create and update events (upcoming and past)
+For detailed customization instructions, see **[SETUP.md](./docs/SETUP.md)**.
 
-### Adding a New Event
+## Event Registration
 
-Edit `lib/content.ts` and add to the `upcomingEvents` array:
+This application supports embedded Google Forms for event registration with automatic email notifications and calendar invites. See **[GOOGLE_FORMS_SETUP.md](./docs/GOOGLE_FORMS_SETUP.md)** for complete setup instructions.
 
-```typescript
-{
-  id: "unique-id",
-  title: "Event Title",
-  titleKannada: "ಕನ್ನಡ ಶೀರ್ಷಿಕೆ",
-  date: "2026-12-31",
-  time: "18:00 - 22:00",
-  venue: "Event Location",
-  description: "Event description...",
-  ticketLink: "https://tickets.example.com"
-}
-```
+## Styling
 
-### Updating Site Information
+The application uses SCSS with BEM methodology for maintainable, scalable styling. See **[SCSS-STRUCTURE.md](./docs/SCSS-STRUCTURE.md)** for detailed documentation on the styling architecture.
 
-Modify the `siteConfig` object in `lib/content.ts`:
+## Documentation
 
-```typescript
-export const siteConfig = {
-  name: "Your Organization Name",
-  nameKannada: "ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಹೆಸರು",
-  email: "your@email.com",
-  phone: "+49 XXX XXX XXXX",
-  // ... other settings
-};
-```
-
-## Customization
-
-### Colors
-
-The application uses a red and yellow color scheme. To change colors, update Tailwind classes in components:
-
-- Primary Red: `bg-red-600`, `text-red-600`
-- Primary Yellow: `bg-yellow-400`, `text-yellow-400`
-- Accent colors: Green, Gray
-
-### Fonts
-
-Fonts are configured in `app/layout.tsx` using Google Fonts (Geist Sans & Geist Mono).
-
-## Building for Production
-
-```bash
-npm run build
-npm start
-```
-
-## Deployment
-
-This application can be deployed to:
-
-- **Vercel** (recommended for Next.js)
-- **Netlify**
-- **AWS Amplify**
-- Any Node.js hosting platform
-
-### Deploy to Vercel
-
-1. Push your code to GitHub
-2. Import the repository in Vercel
-3. Deploy with default settings
+- **[SETUP.md](./docs/SETUP.md)** - Quick setup guide with installation, customization, and deployment instructions
+- **[GOOGLE_FORMS_SETUP.md](./docs/GOOGLE_FORMS_SETUP.md)** - Complete guide for setting up event registration with Google Forms
+- **[SCSS-STRUCTURE.md](./docs/SCSS-STRUCTURE.md)** - SCSS architecture and styling documentation
 
 ## Future Enhancements
 
